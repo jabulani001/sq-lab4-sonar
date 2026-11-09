@@ -1,4 +1,4 @@
-import random
+import secrets
 import string
 
 
@@ -62,4 +62,4 @@ class Checkout:
 
     def generateCouponCode(self, length=8):
         alphabet = string.ascii_uppercase + string.digits
-        return "".join(random.choice(alphabet) for _ in range(length))
+        return "".join(secrets.choice(alphabet) for _ in range(length))
