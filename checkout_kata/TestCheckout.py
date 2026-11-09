@@ -67,3 +67,11 @@ def test_discountNotAppliedWithTooFewItems(checkout):
     checkout.addItem("a")
     checkout.addItem("a")
     assert checkout.calculateTotal() == 2
+
+# Lab 4: Gutscheincodes
+def test_couponCodeHasRequestedLength(checkout):
+    assert len(checkout.generateCouponCode(12)) == 12
+
+def test_couponCodeUsesOnlyUppercaseAndDigits(checkout):
+    code = checkout.generateCouponCode()
+    assert code.isalnum() and code == code.upper()

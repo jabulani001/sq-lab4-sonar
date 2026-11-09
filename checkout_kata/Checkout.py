@@ -1,3 +1,6 @@
+import random
+import string
+
 
 class Checkout:
     class Discount:
@@ -56,3 +59,7 @@ class Checkout:
         remaining = cnt % discount.nbrItems
         total += remaining * self.prices[item]
         return total
+
+    def generateCouponCode(self, length=8):
+        alphabet = string.ascii_uppercase + string.digits
+        return "".join(random.choice(alphabet) for _ in range(length))
